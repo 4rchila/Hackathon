@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-image: url('./source/Archila_Batz_German_Juan_Carlos_Necesito_una_imagen_reailista__de_un_paisaje_unive_c93f9c6b-5648-474c-8338-c7dd45ed1f49.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 50px 20px;
+    color: white;
+}
+
+.navbar {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    z-index: 1000;
+}
+.navbar img
+{
+    height: auto;
+    width: 10%;
+    background-color: white;
+    border-radius:50px ;
+}
+
+.navbar .btn {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+.cta-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* Sección de tests */
+
+
+.tests {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 50px 20px;
+    background-color: #777777;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.test-container {
+    perspective: 1000px; 
+    display: grid; 
+    align-items: center; 
+}
+.card {
+    width: 250px; 
+    height: 350px; 
+    position: sticky;
+    transform-style: preserve-3d; 
+    transition: transform 0.6s; 
+    cursor: pointer; 
+    display: grid;
+    border-radius: 50px;
+    grid-template-rows:repeat(3, 1fr) ;
+    box-shadow:  20px 20px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+    transform: rotateY(180deg); 
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la parte trasera cuando no está visible */
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    flex-direction: column; /* Para alinear texto e imagen verticalmente */
+    border-radius: 10px; /* Radio de los bordes */
+}
+
+.front {
+    background-color: hsl(67, 16%, 32%); /* Color del frente */
+    color: white;
+}
+
+.back {
+    background-color: #ffffff; /* Color de la parte trasera */
+    transform: rotateY(180deg); /* Rota el lado posterior */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno para el texto */
+    color: black;
+}
+
+.test-btn {
+    margin: 40px 50px; /* Espaciado del botón */
+    background-color: #ffffff;
+    color: black;
+    border-radius: 20px;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.test-btn:hover {
+    background-color: hsl(67, 16%, 32%);
+    color: white;
+}
+
+/* Estilo para las imágenes */
+.test-container img {
+    width: 30%; /* Ajusta al 80% del ancho del contenedor */
+    border-radius: 50%;
+    height: auto;
+}
+
+.img-first-box {
+    align-self: flex-start;
+    justify-self: left; 
+    margin: 50px;
+}
+
+.img-second-box {
+    align-self: end;
+    justify-self: right; /* Asegura que la imagen esté a la derecha */
+    margin: 50px;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    background-color: #E5E5E5;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+
+.cta-section h2 {
+    font-size: 1.5rem;
+}
+
+/* Carreras Recomendadas */
+.recommended {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #C9C6A9;
+}
+
+.recommended-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.career-box {
+    background-color: #A45D5D;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 20%;
+}
+
+/* Info Section */
+.info-section {
+    background-image: url(./source/Archila_Batz_German_Juan_Carlos_necesito_una_imagen_que_represente_la_vida_univers_9ff2651c-3c76-41ef-b853-fcd1a88df340.png);
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+}
+
+.info-box {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    width: 40%;
+}
+
+footer {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 10px 0;
+}

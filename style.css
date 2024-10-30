@@ -12,6 +12,7 @@ body {
 
 /* Header */
 .header {
+    position: relative;
     background-image: url('./source/Archila_Batz_German_Juan_Carlos_Necesito_una_imagen_reailista__de_un_paisaje_unive_c93f9c6b-5648-474c-8338-c7dd45ed1f49.png');
     background-size: cover;
     background-position: center;
@@ -19,15 +20,32 @@ body {
     text-align: center;
     padding: 50px 20px;
     color: white;
-    height: 680px; /* Ajusta la altura del header como desees */
-    width: 100%; /* Ancho completo */
+    height: 680px;
+    width: 100%; 
+    overflow: hidden;
 }
-header .hero-text
-{
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit; /* Utiliza la misma imagen de fondo */
+    background-size: inherit;
+    background-position: inherit;
+    background-repeat: inherit;
+    filter: blur(3px); /* Ajusta el valor para más o menos desenfoque */
+    z-index: 1;
+}
+.hero-text {
+    position: relative;
+    z-index: 2; /* Asegura que el texto esté encima del desenfoque */
     align-content: center;
     height: 100%;
     width: 100%;
-
+    padding: 20px;
 }
 .navbar {
     position: fixed;
@@ -38,11 +56,11 @@ header .hero-text
     width: 100%;
     height: 80px;
     padding: 10px;
-    display: flex; /* Asegura el uso de flexbox */
-    align-items: center; /* Centra los elementos verticalmente */
-    justify-content: center; /* Centra los elementos horizontalmente */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
     transition: background-color 0.8s ease;
-    background-color: transparent; /* Fondo para ver el cambio */
+    background-color: transparent; 
 }
 
 .navbar ul {
@@ -53,7 +71,7 @@ header .hero-text
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: space-around;
-    align-items: center; /* Alinea los elementos de la lista verticalmente */
+    align-items: center; 
 }
 
 .navbar ul li {
@@ -66,12 +84,14 @@ header .hero-text
     border-radius: 5px;
     transition: background-color 0.3s;
     display: flex;
-    align-items: center; /* Alinea el texto en el centro verticalmente */
+    align-items: center; 
     border-radius: 50px;
     color: black;
 }
 .navbar .btn
 {
+    font-family: "Rakkas", serif;
+  font-weight: 300;
     background-color: white;
 }
 .navbar ul li a {
@@ -107,16 +127,21 @@ header .hero-text
     justify-self: right;
 }
 .hero-text h1 {
-    font-size: 3rem;
+    font-family: "Knewave", system-ui;
+  font-weight: 400;
+    font-size: 4rem;
     margin-bottom: 50px;
 }
 
 .hero-text p {
+    font-family: "Rubik Dirt", system-ui;
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
 .cta-btn {
+    font-family: "Rakkas", serif;
+  font-weight: 400;
     background-color: #546935;
     color: white;
     padding: 15px 30px;
@@ -127,6 +152,10 @@ header .hero-text
     border-radius: 50px;
      box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
+.cta-btn:hover{
+    background-color: white;
+    color: black;
+}
 
 /* Sección de tests */
 
@@ -135,11 +164,15 @@ header .hero-text
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 50px 20px;
-    background-color: #777777;
+    background-image: url(./source/mansion-4751778_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     align-content: center;
     justify-content: center;
     justify-items: center;
     width: 100%;
+    height: auto;
 }
 
 .test-container {
@@ -158,6 +191,8 @@ header .hero-text
     border-radius: 50px;
     grid-template-rows:repeat(3, 1fr) ;
     box-shadow:  20px 20px 30px rgba(0, 0, 0, 0.5);
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .card:hover {
@@ -198,6 +233,8 @@ header .hero-text
     cursor: pointer;
     font-size: 1rem;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
 }
 
 .test-btn:hover {
@@ -237,24 +274,71 @@ header .hero-text
 }
 
 /* Carreras Recomendadas */
+
 .recommended {
+    display: grid;
     text-align: center;
     padding: 50px 20px;
-    background-color: #C9C6A9;
-}
-
-.recommended-content {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-}
-
-.career-box {
-    background-color: #A45D5D;
+    background-image: url(./source/books-1281581_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 20px;
+    height: 680px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 20%;
+    font-size: 2rem;
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    width: 300%; /* Ajustado para 7 contenedores de imagenes */
+    animation: slide 20s linear infinite; /* Animación continua */
+}
+
+.slide {
+    width: calc(100% / 7); /* El ancho de cada slide para que ocupe 1/7 del contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.slide .slideImg {
+    width: 70%;
+    height: auto;
+    max-height: 400px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide .logos {
+    width: 50%;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide p {
+    margin-top: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Animación continua sin pausas */
+@keyframes slide {
+    0% { transform: translateX(0); }         /* Imagen 1 */
+    100% { transform: translateX(-100%); }   /* Desplazarse completamente */
 }
 
 /* Info Section */
@@ -263,23 +347,54 @@ header .hero-text
     display: flex;
     justify-content: space-around;
     padding: 50px 20px;
+    height: 600px;
+    width: 100%;
+    font-size: 1.2rem;
 }
-
+.info-section img
+{
+ width: 80%;
+ height: auto;
+ border-radius: 30px;
+ margin: 20px;
+ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
 .info-box {
     background-color: #ffffff;
     padding: 20px;
     text-align: center;
     border-radius: 10px;
     width: 40%;
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
 }
 
 footer {
-    background-color: #333333;
-    color: white;
-    padding: 20px;
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+    padding: 40px 20px;
     text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid #444;
 }
 
 footer p {
-    margin: 10px 0;
+    margin: 0;
+    opacity: 0.8;
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 10px auto;
 }
+
+footer a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 0 5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #b2d235;
+}
+
